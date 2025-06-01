@@ -14,7 +14,7 @@ const DATASET = process.env.SANITY_DATASET;
 const TOKEN = process.env.SANITY_TOKEN;
 
 app.get('/api/posts', async (req, res) => {
-  const query = encodeURIComponent(`*[_type == "post"]{title, slug, mainImage{asset->{url}}, bodyPreview, date}`);
+  const query = encodeURIComponent(`*[_type == "post"]{title, slug, mainImage{asset->{url}}, bodyPreview, body, pdfFile, date}`);
   const url = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${query}`;
 
   try {
